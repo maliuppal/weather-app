@@ -9,10 +9,10 @@ const getWeather = async (latitude, longitude, callback) => {
             },
         })
         .then((res) => {
-            console.log(JSON.stringify(res.data))
             callback(res.data);
         })
         .catch((error) => {
+            callback({error: 'unable to find the location'});
             console.log(`Error in getWeather: ${error}`);
         });
 };
